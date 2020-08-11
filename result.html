@@ -13,43 +13,59 @@
     <title>Result</title>
   </head>
   <style>
-      body{
-          background-image: url(./images/undraw_winners_ao2o.svg);
-          background-size: cover;
-          background-repeat: no-repeat;
-          background-position: left;
-      }
-      main{
-          margin-left: 35%;
-          margin-top: 3%;
-          width: 300px !important;
-      }
-      .btn{
-        margin-left: 35%;
-      }
-      @media only screen and (min-width: 388px){
-        body{
-          overflow:  hidden !important;
-        }
-        main{
-          width: 10rem !important;
-          height: 10rem;
-
-        }
-      }
+    @media only screen and (min-width: 388px) {
+      
+    body{
+      background-color: #333;
+    }
+    .animation{
+      margin-top: 6rem;
+      animation: anime alternate 3s ease 1;
+    }
+    .btn{
+      margin-left: 40px;
+    }
+    }
+    body{
+      background-image: url(./images/undraw_winners_ao2o.svg);
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      background-attachment: fixed;
+    }
+    @keyframes anime {
+     0%{
+       opacity: 0;
+       margin-top: -200%;
+     }
+     25%{
+       opacity: 0.3;
+     }
+    50%{
+      opacity: 0.5;
+    }
+    75%{
+      opacity: 0.7;
+    }
+    100%{
+      opacity: 1;
+      margin-top: 0%;
+    }
+    }
   </style>
   <body>
       <header>
 
       </header>
 
-      <main>
-        <div class="card container" style="width: 30rem;height: 40rem;">
+      <main class="animation">
+        <div class="card container" style="width: 18rem;">
             <img src="./images/6673.jpg" class="card-img-top" alt="Congratulations">
             <div class="card-body">
-              <h3 class="card-title text-center">Congratulations! <p id="name"></p></h3>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
+              <h3 class="card-title text-center">Congratulations! <p id="name"></p>Your Score is:<p id="score"></p></h3>
+              <p class="card-text">You have Succesfully Complete The JavaScript 10 Questions Quiz.</p>
+              <a href="javascript:void(0)" onclick="alert('Congratulations!')" class="btn btn-primary">Congratulations!</a>
+              
             </div>
           </div>
       </main>
@@ -67,8 +83,13 @@
       crossorigin="anonymous"
     ></script>
     <script>
+        import {firstName, lastName} from './Quiz.js';
+        import {score} from './JS/App.js'
+
         var name = document.getElementById('name');
-        name.innerHTML = first_Name() + "" + lastName()
+        name.innerHTML = firstName + "" + lastName
+        var totalScore = document.getElementById("score")
+        totalScore.innerHTML = score;
     </script>
   </body>
 </html>
